@@ -15,15 +15,21 @@ static pair<nullptr_t, int> NOT_FOUND = make_pair(nullptr, -1);
 
 class Curse
 {
+private:
+    string point;
+
 public:
     string id;
     string name;
-    short point;
     Curse(string id, string name)
     {
         this->id = id;
         this->name = name;
-        this->point = 0;
+        this->point = "";
+    }
+    void setPoint(string point)
+    {
+        this->point = point;
     }
     bool match(string matchType, string idOrName)
     {
@@ -41,17 +47,24 @@ public:
 
 class Student
 {
+private:
+    string gender;
+    int age;
+
 public:
     string id;
     string name;
-    string gender;
-    int age;
     Student(string id, string name)
     {
         this->id = id;
         this->name = name;
         this->gender = "";
         this->age = 0;
+    }
+    void setInfo(string gender, int age)
+    {
+        this->gender = gender;
+        this->age = age;
     }
     bool match(string matchType, string idOrName)
     {
@@ -72,10 +85,11 @@ class Score
 private:
     string integer;
     string decimal;
+
+public:
     string studentId;
     string curseId;
 
-public:
     Score(string studentId, string curseId)
     {
         this->studentId = studentId;
